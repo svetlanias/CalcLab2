@@ -6,8 +6,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        //Calculator str=new Calculator("1*5+3.1*5.3*2*(2+2*8)+(123+22+5)+1*1");//+
-        //Calculator str=new Calculator("(5*(7+1)*(1))*(2+2*8)+(123-8+22+5)"); //+
         //Calculator str=new Calculator("1+3*5*6*(123+22-23+5)*2+1"); //+
         //Calculator str=new Calculator("1+3+(-55)-6-(123-22+5)"); //+
         //Calculator str=new Calculator("(2+3)*4"); //+

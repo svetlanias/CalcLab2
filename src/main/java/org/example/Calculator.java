@@ -52,11 +52,9 @@ public class Calculator {
         StringBuilder stra= new StringBuilder();
         char q='1';
         String n="";
-        for(int pos=0; pos<expression.length();pos++)
+        for(int pos=0; pos<expression.length()-1;pos++)
         {
             char ch = expression.charAt(pos);
-            System.out.println(ch);
-            System.out.println(strb);
             if (ch=='s' || ch=='c' && expression.charAt(pos+1)>='a' && expression.charAt(pos+1)<='z')
             {
                 String l=expression.substring(pos,pos+3);
@@ -112,10 +110,9 @@ public class Calculator {
             }
             else strb.append(ch);
         }
-
+        strb.append(expression.charAt(expression.length()-1));
         expression= strb.toString();
 
-        System.out.println(strb);
         return result;
     }
 
@@ -164,8 +161,6 @@ public class Calculator {
                     if(ch=='*') strb.append(Double.parseDouble(a.toString())*Double.parseDouble(b.toString()));
                     if(ch=='/')
                     {
-                        System.out.println(a);
-                        System.out.println(b);
                         if(b.toString().equals("0") || b.toString().equals("0.0")) return false;
                         else strb.append(Double.parseDouble(a.toString())/Double.parseDouble(b.toString()));
                     }
@@ -192,7 +187,6 @@ public class Calculator {
         }
 
         expression= strb.toString();
-        System.out.println(expression);
         if(branch-branchers>0)
             if(!calculateExpressionWithBrackers()) return false;
             if(!calculationByPriority()) return false;
@@ -312,7 +306,6 @@ public class Calculator {
                 {
                     char h=expression.charAt(pos+iter);
                     b.append(h);
-                    System.out.println(b);
                     iter++;
                     if(expression.length()<=(pos+iter)) break;
                 }
@@ -388,11 +381,9 @@ public class Calculator {
             Collections.reverse(arr);
             expression=String.join("",arr);
 
-            System.out.println(expression);
             removeRepetitions();
 
         } else expression=numbers.pop().toString();
-        System.out.println(expression);
         return true;
     }
 
