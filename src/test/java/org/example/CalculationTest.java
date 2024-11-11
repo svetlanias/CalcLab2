@@ -9,9 +9,9 @@ public class CalculationTest {
 
     @Test
     public void testVariablesAndFunctions() {
-        Calculator calc = new Calculator("25+cos(25)");
+        Calculator calc = new Calculator("25+sin(25)+sqrt(20-5+10)+2*2");
         assertTrue(calc.variablesAndFunctions());
-        assertEquals("25+0.9063077870366499", calc.getExpression());
+        assertEquals("25+0.42261826174069944+5.0+2*2", calc.getExpression());
     }
 
     @Test

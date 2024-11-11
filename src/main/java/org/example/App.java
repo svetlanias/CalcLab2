@@ -9,7 +9,7 @@ public class App
         //Calculator str=new Calculator("1+3*5*6*(123+22-23+5)*2+1"); //+
         //Calculator str=new Calculator("1+3+(-55)-6-(123-22+5)"); //+
         //Calculator str=new Calculator("(2+3)*4"); //+
-        //Calculator str=new Calculator("25+sin(25)"); //+
+        //Calculator str=new Calculator("25+sin(25)+sqrt(20-5+10)+2*2"); //+
         //Calculator str=new Calculator("33+x+x"); //+
         //str.calculateExpressionWithBrackers();
         //str.removeRepetitions();
@@ -22,7 +22,6 @@ public class App
         System.out.print("Введите выражение: ");
         String line = scanner.nextLine();
         Calculator str = new Calculator(line);
-
         if(!str.variablesAndFunctions()) System.out.println("выражение собержит ошибки либо в промежуточных вычислениях есть деление на 0");
         else if(!str.removeRepetitions()) System.out.println("выражение собержит деление на 0");
         else System.out.println("вычисленное выражение= "+ str.getExpression());

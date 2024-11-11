@@ -49,11 +49,12 @@ public class Calculator {
     {
         boolean result=true;
         StringBuilder strb= new StringBuilder();
-        StringBuilder stra= new StringBuilder();
+
         char q='1';
         String n="";
         for(int pos=0; pos<expression.length()-1;pos++)
         {
+            StringBuilder stra= new StringBuilder();
             char ch = expression.charAt(pos);
             if (ch=='s' || ch=='c' && expression.charAt(pos+1)>='a' && expression.charAt(pos+1)<='z')
             {
@@ -69,7 +70,6 @@ public class Calculator {
                         ch=expression.charAt(pos);
                     }
                     Calculator str=new Calculator(stra.toString());
-
                     if (str.removeRepetitions()) {
                         if (l.equals("sin"))
                             strb.append(Math.sin(Math.toRadians(Double.parseDouble(str.getExpression()))));
@@ -112,7 +112,6 @@ public class Calculator {
         }
         strb.append(expression.charAt(expression.length()-1));
         expression= strb.toString();
-
         return result;
     }
 
