@@ -18,7 +18,7 @@ public class Calculator {
      * конструктор
      * @param str само выражение
      */
-    Calculator(String str)
+    public Calculator(String str)
     {
         expression=str;
     }
@@ -27,7 +27,7 @@ public class Calculator {
      * заменяет выражение на новое
      * @param str новое выражение
      */
-    void setExpression(String str)
+    public void setExpression(String str)
     {
         expression=str;
     }
@@ -36,7 +36,7 @@ public class Calculator {
      * возвращяет выражение
      * @return выражение
      */
-    String getExpression()
+    public String getExpression()
     {
         return expression;
     }
@@ -45,7 +45,7 @@ public class Calculator {
      * метод, работающий с sin,cos,sqrt и переменными: проверка на правильность и вычисление
      * @return false если введеное выражение неправильно true если верно
      */
-    boolean variablesAndFunctions()
+    public boolean variablesAndFunctions()
     {
         boolean result=true;
         StringBuilder strb= new StringBuilder();
@@ -121,11 +121,11 @@ public class Calculator {
 
 
     /**
-     * считает, если подряд идут одинаковые знаки и если они не окружены скобками
+     * считает, части со знаками * / - если они не окружены скобками
      * @return false если выражение не может быть вычисленно true если вычисления произведены
      */
 
-    boolean removeRepetitions()
+    public boolean removeRepetitions()
     {
         int branch=0;
         int branchers=0;
@@ -204,7 +204,7 @@ public class Calculator {
      * вычисляет выражение согласно приоритету знаков
      * @return false если выражение не может быть посичитано true если оно вычисленнл
      */
-    boolean calculationByPriority()
+    public boolean calculationByPriority()
     {
         ArrayList<String> expr=new ArrayList<>();
         ArrayList<String> vsp=new ArrayList<>();
@@ -286,7 +286,7 @@ public class Calculator {
      * вычисляет выражение, если в нем присутствуют скобки
      * @return false если выражение не может быть посичитано true если оно вычисленнл
      */
-    boolean calculateExpressionWithBrackers()
+    public boolean calculateExpressionWithBrackers()
     {
         Stack<Double> numbers=new Stack<>();
         Stack<Character> symbols=new Stack<>();
