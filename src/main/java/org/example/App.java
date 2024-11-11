@@ -11,7 +11,7 @@ public class App
         //Calculator str=new Calculator("1+3*5*6*(123+22-23+5)*2+1"); //+
         //Calculator str=new Calculator("1+3+(-55)-6-(123-22+5)"); //+
         //Calculator str=new Calculator("(2+3)*4"); //+
-        //Calculator str=new Calculator("2*5*3+4/2"); //+
+        //Calculator str=new Calculator("25+sin(25)"); //+
         //Calculator str=new Calculator("33+x+x"); //+
         //str.calculateExpressionWithBrackers();
         //str.removeRepetitions();
