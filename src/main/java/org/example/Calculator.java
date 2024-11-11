@@ -18,7 +18,7 @@ public class Calculator {
      * конструктор
      * @param str само выражение
      */
-    public Calculator(String str)
+    Calculator(String str)
     {
         expression=str;
     }
@@ -27,7 +27,7 @@ public class Calculator {
      * заменяет выражение на новое
      * @param str новое выражение
      */
-    public void setExpression(String str)
+    void setExpression(String str)
     {
         expression=str;
     }
@@ -36,7 +36,7 @@ public class Calculator {
      * возвращяет выражение
      * @return выражение
      */
-    public String getExpression()
+    String getExpression()
     {
         return expression;
     }
@@ -45,7 +45,7 @@ public class Calculator {
      * метод, работающий с sin,cos,sqrt и переменными: проверка на правильность и вычисление
      * @return false если введеное выражение неправильно true если верно
      */
-    public boolean variablesAndFunctions()
+    boolean variablesAndFunctions()
     {
         boolean result=true;
         StringBuilder strb= new StringBuilder();
@@ -55,6 +55,8 @@ public class Calculator {
         for(int pos=0; pos<expression.length();pos++)
         {
             char ch = expression.charAt(pos);
+            System.out.println(ch);
+            System.out.println(strb);
             if (ch=='s' || ch=='c' && expression.charAt(pos+1)>='a' && expression.charAt(pos+1)<='z')
             {
                 String l=expression.substring(pos,pos+3);
@@ -75,9 +77,7 @@ public class Calculator {
                             strb.append(Math.sin(Math.toRadians(Double.parseDouble(str.getExpression()))));
                         if (l.equals("cos"))
                             strb.append(Math.cos(Math.toRadians(Double.parseDouble(str.getExpression()))));
-                    } else {
-                        return false;
-                    }
+                    } else return false;
                 }
                 else if(expression.substring(pos,pos+4).equals("sqrt"))
                 {
@@ -92,13 +92,9 @@ public class Calculator {
                     Calculator str=new Calculator(stra.toString());
 
                     if(str.removeRepetitions()) strb.append(Math.sqrt(Double.parseDouble(str.getExpression())));
-                    else {
-                        return false;
-                    }
+                    else return false;
                 }
-                else {
-                    return false;
-                }
+                else  return false;
             } else if(ch>='a' || ch<='z' && expression.charAt(pos+1)<='a' && expression.charAt(pos+1)>='z'){
                 if(ch==q) strb.append(n);
                 else {
@@ -111,9 +107,7 @@ public class Calculator {
                         strb.append(str.getExpression());
                         q = ch;
                         n = str.getExpression();
-                    } else {
-                        return false;
-                    }
+                    } else return false;
                 }
             }
             else strb.append(ch);
@@ -121,16 +115,17 @@ public class Calculator {
 
         expression= strb.toString();
 
+        System.out.println(strb);
         return result;
     }
 
 
     /**
-     * считает, части со знаками * / - если они не окружены скобками и вызывает остальные функции, если они нужны для вычисдения
+     * считает, если подряд идут одинаковые знаки и если они не окружены скобками
      * @return false если выражение не может быть вычисленно true если вычисления произведены
      */
 
-    public boolean removeRepetitions()
+    boolean removeRepetitions()
     {
         int branch=0;
         int branchers=0;
@@ -209,7 +204,7 @@ public class Calculator {
      * вычисляет выражение согласно приоритету знаков
      * @return false если выражение не может быть посичитано true если оно вычисленнл
      */
-    public boolean calculationByPriority()
+    boolean calculationByPriority()
     {
         ArrayList<String> expr=new ArrayList<>();
         ArrayList<String> vsp=new ArrayList<>();
@@ -291,7 +286,7 @@ public class Calculator {
      * вычисляет выражение, если в нем присутствуют скобки
      * @return false если выражение не может быть посичитано true если оно вычисленнл
      */
-    public boolean calculateExpressionWithBrackers()
+    boolean calculateExpressionWithBrackers()
     {
         Stack<Double> numbers=new Stack<>();
         Stack<Character> symbols=new Stack<>();
