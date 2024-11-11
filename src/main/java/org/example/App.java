@@ -11,18 +11,22 @@ public class App
         //Calculator str=new Calculator("(2+3)*4"); //+
         //Calculator str=new Calculator("25+sin(25)+sqrt(20-5+10)+2*2"); //+
         //Calculator str=new Calculator("33+x+x"); //+
+        //Calculator str=new Calculator("(33)+(x+x)");
         //str.calculateExpressionWithBrackers();
         //str.removeRepetitions();
         //str.variablesAndFunctions();
         //System.out.println(str.removeRepetitions());
         //System.out.println(str.getExpression());
 
+        //System.out.println(str.checkingPlacementBrackets());
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите выражение: ");
         String line = scanner.nextLine();
         Calculator str = new Calculator(line);
-        if(!str.variablesAndFunctions()) System.out.println("выражение собержит ошибки либо в промежуточных вычислениях есть деление на 0");
+
+        if(!str.checkingPlacementBrackets()) System.out.println("не верно расставлены скобки");
+        else if(!str.variablesAndFunctions()) System.out.println("выражение собержит ошибки либо в промежуточных вычислениях есть деление на 0");
         else if(!str.removeRepetitions()) System.out.println("выражение собержит деление на 0");
         else System.out.println("вычисленное выражение= "+ str.getExpression());
 

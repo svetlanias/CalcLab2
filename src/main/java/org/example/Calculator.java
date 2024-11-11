@@ -42,6 +42,27 @@ public class Calculator {
     }
 
     /**
+     * проверяет правильно ли расставлены скобки
+     * @return false если не правильно true если правильно
+     */
+    public boolean checkingPlacementBrackets()
+    {
+        Stack<Character> b=new Stack<>();
+        for(int pos=0; pos<expression.length();pos++)
+        {
+            char ch=expression.charAt(pos);
+            if(ch=='(') b.push('(');
+            if(ch==')')
+            {
+                if(b.isEmpty()) return  false;
+                else b.pop();
+            }
+        }
+        if(!b.isEmpty()) return false;
+        else return true;
+    }
+
+    /**
      * метод, работающий с sin,cos,sqrt и переменными: проверка на правильность и вычисление
      * @return false если введеное выражение неправильно true если верно
      */

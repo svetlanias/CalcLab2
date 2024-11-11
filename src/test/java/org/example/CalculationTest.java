@@ -8,6 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CalculationTest {
 
     @Test
+    public void testcheckingPlacementBrackets() {
+        Calculator calc = new Calculator("25+sin(25)+sqrt(20-5+10))+2*2");
+
+        assertTrue(!calc.checkingPlacementBrackets());
+    }
+
+    @Test
     public void testVariablesAndFunctions() {
         Calculator calc = new Calculator("25+sin(25)+sqrt(20-5+10)+2*2");
         assertTrue(calc.variablesAndFunctions());
